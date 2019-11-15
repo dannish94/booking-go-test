@@ -1,10 +1,10 @@
 import axios from "axios";
 
-const getLocations = async (numberOfResults, searchTerm) => {
+const getLocations = (numberOfResults, searchTerm) => {
   if (!searchTerm) {
     return Promise.resolve([]);
   } else {
-    return await axios.get(
+    return axios.get(
       `https://www.rentalcars.com/FTSAutocomplete.do?solrIndex=fts_en&solrRows=${numberOfResults}&solrTerm=${searchTerm}`)
       .then((location) => { return location.data.results.docs })
       .catch((err) => {
