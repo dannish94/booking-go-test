@@ -63,8 +63,10 @@ width: 100%
 
 class Search extends React.Component {
     // async componentDidMount(){
-    //     console.log(await getLocations(20, 'manchester'))
+    //     const data = await getLocations(6, 'manchester')
+    //     console.log(data);
     // }
+
     render()
     {
 

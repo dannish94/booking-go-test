@@ -4,10 +4,12 @@ const getLocations = async (numberOfResults, searchTerm) => {
   if (!searchTerm) {
     return Promise.resolve([]);
   } else {
-    const locations = await axios.get(
-      `https://www.rentalcars.com/FTSAutocomplete.do?solrIndex=fts_en&solrRows=${numberOfResults}&solrTerm=${searchTerm}`
-    );
-    return locations.data.results.docs
+    return await axios.get(
+      `https://www.rentalcars.com/FTSAutocomplete.do?solrIndex=fts_en&solrRows=${numberOfResults}&solrTerm=${searchTerm}`)
+      .then((location) => { return location.data.results.docs })
+      .catch((err) => {
+        console.error(err);
+      });
   }
 };
 
