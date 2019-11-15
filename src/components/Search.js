@@ -41,6 +41,23 @@ border-radius: 4px;
   }
 `
 
+const SearchButton = styled.button`
+background-color: #039354;
+border: 1px solid transparent;
+margin: 15px 0;
+border-radius: 4px;
+color: #fff;
+cursor: pointer;
+height: 56px;
+transition: background-color .2s;
+font-size: 24px;
+width: 100%
+
+&:hover {
+    background-color: #00874d;
+  }
+`
+
 class Search extends React.Component {
 
     render()
@@ -52,6 +69,7 @@ class Search extends React.Component {
                 <StyledDiv className='form-group'>
                     <SearchInput className='input' 
                     placeholder='city, airport, station, region and district...'/>
+                <SearchButton className='search-btn'>Search</SearchButton>
                 </StyledDiv>
             </SearchContainer>
         )
