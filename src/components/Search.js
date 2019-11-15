@@ -83,6 +83,7 @@ const Search = () => {
     const [results, setResults] = useState(true)
 
     const handleInput = async (e) => {
+        console.log(location);
         e.preventDefault();
         const value = e.target.value;
         if (value.length > 1) {
