@@ -5,6 +5,7 @@ import Dropdown from "./Dropdown";
 
 const StyledDiv = styled.div`
   margin: 10px 0;
+  z-index: 10
 `;
 
 const SearchContainer = styled.div`
@@ -48,6 +49,8 @@ const SearchInput = styled.input`
 `;
 
 const SearchButton = styled.button`
+  position: absolute;
+  bottom: 0;
   background-color: #039354;
   border: 1px solid transparent;
   margin: 15px 0;
@@ -57,15 +60,27 @@ const SearchButton = styled.button`
   height: 56px;
   transition: background-color 0.2s;
   font-size: 24px;
-  width: 100%
+  width: 90%
 
 &:hover {
     background-color: #00874d;
   }
 `;
 
+const StyledUL = styled.ul`
+background-color: white;
+border-radius: 0 0 5px 5px;
+width: 100%;
+top: 100%;
+padding: 0px;
+box-shadow: 2px 0 6px 2px rgba(0, 0, 0, 0.2);
+z-index: 1;
+margin: 0;
+`
+
 const Search = () => {
     const [location, setLocation] = useState("");
+    const [results, setResults] = useState(true)
 
     const handleInput = async (e) => {
         e.preventDefault();
@@ -79,6 +94,7 @@ const Search = () => {
             }
         }
     };
+    
 
     return (
         <SearchContainer className="search-container">
@@ -90,10 +106,16 @@ const Search = () => {
                 <SearchInput
                     className="input"
                     placeholder="city, airport, station, region and district..."
-                    onChange={e => handleInput(e)}/>
-                {location && 
-                (<Dropdown location={location}/>)
-                } 
+                    onChange={e => handleInput(e)}
+                    onBlur={() => setResults(false)}
+                    onClick={() => setResults(true)} 
+                    />
+                {location && results &&
+                    (<StyledUL>
+                        <Dropdown location={location} />
+                    </StyledUL>
+                    )
+                }
             </StyledDiv>
             <SearchButton className="search-btn">Search</SearchButton>
         </SearchContainer>
