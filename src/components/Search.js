@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import getLocations from '../services/getLocations'
 
 const StyledDiv = styled.div`
 margin: 10px 0;
@@ -29,12 +30,14 @@ font-weight: 400;
 `
 
 const SearchInput = styled.input`
-width: 100%;
+width: 97%;
 min-width: 425px;
 height: 48px;
 font-size: 1rem;
 border: 1px solid #a4a4a4;
 border-radius: 4px;
+padding-left: 10px;
+
 
 &:focus {
     border: 5px #f3ce56;
@@ -59,9 +62,12 @@ width: 100%
 `
 
 class Search extends React.Component {
-
+    // async componentDidMount(){
+    //     console.log(await getLocations(20, 'manchester'))
+    // }
     render()
     {
+
         return (
             <SearchContainer className='search-container'>
                 <SearchHeading className='search-title'>Where are you going?</SearchHeading>
