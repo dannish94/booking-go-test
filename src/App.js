@@ -4,14 +4,15 @@ import Search from './components/Search';
 import styled from 'styled-components';
 
 const StyledApp = styled.div`
+background-color: #0a6fba;
+min-height: 100vh;
+color: white;
 `
 
 function App() {
   return (
-    <StyledApp className="App">
-      <header className="App-header">
+    <StyledApp className="search-box">
         <Search/>
-      </header>
     </StyledApp>
   );
 }
