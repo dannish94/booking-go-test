@@ -12,6 +12,7 @@ height:250px;
 background-color: #f3ce56;
 padding: 24px;
 min-width: 432px;
+max-width: 456px;
 align-items: flex-start;
 position: relative;
 `
@@ -29,11 +30,15 @@ font-weight: 400;
 
 const SearchInput = styled.input`
 width: 100%;
-min-width: 432px;
+min-width: 425px;
 height: 48px;
 font-size: 1rem;
 border: 1px solid #a4a4a4;
 border-radius: 4px;
+
+&:focus {
+    border: 5px #f3ce56;
+  }
 `
 
 class Search extends React.Component {
