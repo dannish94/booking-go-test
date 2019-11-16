@@ -14,18 +14,27 @@ const SearchContainer = styled.div`
   height: 250px;
   background-color: #f3ce56;
   padding: 24px;
-  min-width: 432px;
-  max-width: 456px;
   align-items: flex-start;
   position: absolute;
   top: 0;
   left: 0;
   margin: 50px 50px;
+
+  @media (max-width: 700px) {
+    width: 90%;
+    margin: 10px 10px;
+    height: 50%;
+    padding: 5px 0 0 15px;
+  }
 `;
 const SearchHeading = styled.h2`
   color: black;
   font-size: 30px;
   font-weight: 550;
+
+  @media (max-width: 700px) {
+    font-size: 28px;
+  }
 `;
 
 const SearchLabel = styled.label`
@@ -46,6 +55,17 @@ const SearchInput = styled.input`
   &:focus {
     border: 5px #f3ce56;
   }
+
+  @media (max-width: 700px) {
+    min-width: 350px;
+    max-width: 350px;
+  }
+
+  @media (max-width: 400px) {
+    min-width: 300px;
+    max-width: 300px;
+  }
+
 `;
 
 const SearchButton = styled.button`
@@ -76,6 +96,15 @@ padding: 0px;
 box-shadow: 2px 0 6px 2px rgba(0, 0, 0, 0.2);
 z-index: 1;
 margin: 0;
+
+@media (max-width: 700px) {
+  min-width: 360px;
+  max-width: 360px;
+}
+@media (max-width: 400px) {
+  min-width: 310px;
+  max-width: 310px;
+}
 `
 
 const Search = () => {
