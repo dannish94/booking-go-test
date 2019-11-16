@@ -1,3 +1,5 @@
+//Mock Data to be used for the first result returned in the array for the term 'manchester'
+
 export function rawLocationData(){ 
     return {
             country: 'United Kingdom',

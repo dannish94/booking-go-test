@@ -51,7 +51,6 @@ font-weight: 300;
 const Dropdown = (props) => {
     if (props.location && props.location !== '') {
         return props.location.map((item, key) => {
-            // console.log('what is in item',item.placeType);
             return (
                 <DropdownContainer className='dropdown-container' key={key}>
                     <StyledList className='location-item'>
@@ -67,9 +66,9 @@ const Dropdown = (props) => {
     }
     else {
         return (
-            <li className="dropdown-item">
-                <h2 className="location-no-results">No Results Found</h2>
-            </li>
+            <StyledList className="no-location-item">
+                <StyledH2 className="no-location-label">No Results Found</StyledH2>
+            </StyledList>
         )
     }
 

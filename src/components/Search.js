@@ -79,48 +79,48 @@ margin: 0;
 `
 
 const Search = () => {
-    const [location, setLocation] = useState("");
-    const [results, setResults] = useState(true)
+  const [location, setLocation] = useState("");
+  const [results, setResults] = useState(true)
 
-    const handleInput = async (e) => {
-        console.log(location);
-        e.preventDefault();
-        const value = e.target.value;
-        if (value.length > 1) {
-            const data = await getLocations(6, value);
-            if (data) {
-                setLocation(data);
-            } else {
-                setLocation('');
-            }
-        }
-    };
-    
+  const handleInput = async (e) => {
+    e.preventDefault();
+    const value = e.target.value;
+    if (value.length > 1) {
+      const data = await getLocations(6, value);
+      if (data) {
+        setLocation(data);
+      } else {
+        setLocation('');
+      }
+    }
+    else {
+      setLocation('')
+      }
+  }
 
-    return (
-        <SearchContainer className="search-container">
-            <SearchHeading className="search-title">
-                Where are you going?
+  return (
+    <SearchContainer className="search-container">
+      <SearchHeading className="search-title">
+        Where are you going?
             </SearchHeading>
-            <SearchLabel className="search-label">Pick-up Location</SearchLabel>
-            <StyledDiv className="form-group">
-                <SearchInput
-                    className="input"
-                    placeholder="city, airport, station, region and district..."
-                    onChange={e => handleInput(e)}
-                    onBlur={() => setResults(false)}
-                    onClick={() => setResults(true)} 
-                    />
-                {location && results &&
-                    (<StyledUL>
-                        <Dropdown location={location} />
-                    </StyledUL>
-                    )
-                }
-            </StyledDiv>
-            <SearchButton className="search-btn">Search</SearchButton>
-        </SearchContainer>
-    );
+      <SearchLabel className="search-label">Pick-up Location</SearchLabel>
+      <StyledDiv className="form-group">
+        <SearchInput
+          className="input"
+          placeholder="city, airport, station, region and district..."
+          onChange={e => handleInput(e)}
+          onBlur={() => setResults(false)}
+          onClick={() => setResults(true)}
+        />
+        {location && results && location.length > 1 ?
+          (<StyledUL>
+            <Dropdown location={location} />
+          </StyledUL>) : null
+        }
+      </StyledDiv>
+      <SearchButton className="search-btn">Search</SearchButton>
+    </SearchContainer>
+  );
 };
 
 export default Search;
