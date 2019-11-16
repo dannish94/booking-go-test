@@ -1,6 +1,7 @@
 Technical Test for BookingGo - Dannish Hussain.
 
 To view, clone the repo and run 'yarn' on directory to do an installation. Once installed run 'yarn start' to run the server and view it in development mode @ http://localhost:3000
+
 Likewise to run the test suite, run 'yarn test'
 
 Tech used: 
